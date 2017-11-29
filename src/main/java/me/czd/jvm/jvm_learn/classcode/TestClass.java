@@ -2,7 +2,7 @@ package me.czd.jvm.jvm_learn.classcode;
 
 /**
  * 通过编译这段代码，去查看编译后的Class文件，了解JVM运行的Class文件的构成，
- * 
+ * package-info 会让你惊喜
  * javap -verbose TestClass
  * 获这通过16进制查看代码，哈哈
  * 

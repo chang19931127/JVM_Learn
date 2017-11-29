@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+
 /**
  * 
  * 
@@ -16,6 +17,7 @@ public class JdkDynamicProxy implements InvocationHandler {
 
 	public Object bind(Object originalObj) {
 		this.originalObj = originalObj;
+		System.out.println("代理类的Class对象"+Proxy.getProxyClass(originalObj.getClass().getClassLoader(), originalObj.getClass().getInterfaces()));
 		return Proxy.newProxyInstance(originalObj.getClass().getClassLoader(), originalObj.getClass().getInterfaces(),
 		        this);
 	}
