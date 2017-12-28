@@ -23,10 +23,15 @@
  * 		eg:0x01020304			0x005071 - 0x01		0x005072 - 0x02		0x005073 - 0x03
  * 		java输入的字节信息全部是大端模式，但是jvm有不同的平台，也就导致不同的硬件，导致可能大端模式，可能小端模式，要统一如何？
  * 		看源码/src/share/vm/classfile		里面有大小端转换的统一
- * 		JVM中的java对象oop-klass模型(ordinary object pointer)
+ * 		JVM中的java对象oop-klass模型(ordinary object pointer)，还有一个handle
  * 			oop用来描述对象实例信息，Klass用来描述java类是虚拟机内部java类型结构的对等体
+ * 			handle是对oop的行为的封装，在访问Java类时一定是通过handle内部指针得到oop实例的，再通过oop就能拿到klass
+ * 			如此handle最终便能操纵oop的行为了
  * 		看源码/src/share/vm/oops/       里面是对oop-klass的定义
  * 			java的数据结构实现机制是，编译时变成字节码，运行期实现。
+ * 		内存分配：
+ * 			oopFactiry.cpp的oopFactory::new_constantPool()调用下去
+ * 		
  * 		
  * 
  *

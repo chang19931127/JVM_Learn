@@ -4,6 +4,7 @@ package me.czd.jvm.jvm_learn.gc;
  * 即便GCRoot 不可达也不一定会被GC回收，一些对象实现了finalize方法称为finalize对象
  * 这些对象会被JVM进行标记，并注册到Finalizer类中，有一条线程专门负责去处理这样的对象去执行finalize方法
  * 来进行一次自我救赎，如果在finalize方法中被GCRoot引用了，那么就逃离了GC的回收
+ * 记住子类实现finalize方法一定要调用super.finalize(负责父类不执行这个方法会。。)
  * 
  * vm args：-XX:+PrintGC -XX:+PrintGCDetails
  * @author Administrator
